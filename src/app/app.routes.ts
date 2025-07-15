@@ -8,19 +8,19 @@ import { CreateComponent } from './create/create';
 export const routes: Routes = [
     { path: '', component: HomeComponent, pathMatch: 'full' },
     // { path: 'product', component: ProductItemComponent },
-    // { path: 'detail/:id', component: DetailComponent },
-    // { path: 'create', component: CreateComponent },
+    { path: 'detail/:id', component: DetailComponent },
+    { path: 'create', component: CreateComponent },
 
-    {
-        path: 'detail/:id',
-        loadComponent: () =>
-            import('./detail/detail').then((m) => m.DetailComponent)
-    },
-    {
-        path: 'create',
-        loadComponent: () =>
-            import('./create/create').then((m) => m.CreateComponent)
-    },
+    // {
+    //     path: 'detail/:id',
+    //     loadComponent: () =>
+    //         import('./detail/detail').then((m) => m.DetailComponent)
+    // },
+    // {
+    //     path: 'create',
+    //     loadComponent: () =>
+    //         import('./create/create').then((m) => m.CreateComponent)
+    // },
 
     { path: '**', component: PageNotFound }
 ];
