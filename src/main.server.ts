@@ -18,3 +18,5 @@ export const getPrerenderRoutes = () => [
     { path: 'detail/0.253956475090453' },
     { path: 'detail/0.666467571051155' }
 ];
+
+export default bootstrap;
