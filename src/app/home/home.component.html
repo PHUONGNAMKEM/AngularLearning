@@ -1,0 +1,12 @@
+<div class="wrapper-cart">
+  <h1 [ngClass]="{'active' : isActive}">Shopping cart</h1>
+
+  <div *ngIf="namne">Hello world</div>
+
+  <div *ngIf="isVisible">
+    <app-product-item [products]="products" (dataEvent)="handleDelete($event)">
+    </app-product-item>
+    <button (click)="handleChangeVisible()">Click me to hidden this product list</button>
+  </div>
+
+</div>
