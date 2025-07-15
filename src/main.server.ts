@@ -13,10 +13,19 @@ import { config } from './app/app.config.server';
 
 export const bootstrap = () => bootstrapApplication(App, config);
 
-export const getPrerenderRoutes = () => [
-    { path: 'detail/0.141193493107266' },
-    { path: 'detail/0.253956475090453' },
-    { path: 'detail/0.666467571051155' }
-];
+/**
+ * Đây là cách đúng với Angular SSR mới (dùng `getPrerenderParams`)
+ * fix lỗi: "route uses prerendering and includes parameters..."
+ */
+export const getPrerenderParams = () => {
+    return {
+        'detail/:id': [
+            { id: '0.141193493107266' },
+            { id: '0.253956475090453' },
+            { id: '0.666467571051155' }
+        ]
+    };
+};
 
+// Bắt buộc có để Netlify SSR không lỗi
 export default bootstrap;
